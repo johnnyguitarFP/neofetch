@@ -1,25 +1,45 @@
-<h3 align="center"><img src="https://i.imgur.com/ZQI2EYz.png" alt="logo" height="100px"></h3>
-<p align="center">A command-line system information tool written in bash 3.2+</p>
+# Better ASCII Waifus for Neofetch
 
-<p align="center">
-<a href="./LICENSE.md"><img src="https://img.shields.io/badge/license-MIT-blue.svg"></a>
-<a href="https://github.com/dylanaraps/neofetch/releases"><img src="https://img.shields.io/github/release/dylanaraps/neofetch.svg"></a>
-<a href="https://repology.org/metapackage/neofetch"><img src="https://repology.org/badge/tiny-repos/neofetch.svg" alt="Packaging status"></a>
-</p>
+    While displaying images in your terminal is cool and all, I wanted to use custom ASCII art, but with ANSI color support to specifically support the output from ascii-image-converter. 
+    This is a fork of Neofetch that adds support for custom ASCII art files with ANSI color codes. 
+    This isn't the be all and end all, but it's something I use and wanted to share because I couldn't find anything like it that was readily available.
 
-<img src="https://i.imgur.com/GFmC5Ad.png" alt="neofetch" align="right" height="240px">
+## How I personally use this:
 
-Neofetch is a command-line system information tool written in `bash 3.2+`. Neofetch displays information about your operating system, software and hardware in an aesthetic and visually pleasing way.
+# 1. 
+    I use this library to convert my waifu over to ASCII art, you'll need to grab this for my example to work: \[[ascii-image-converter](https://github.com/TheZoraiz/ascii-image-converter/)\]
+    I'm a gamedev, so I'm on windows. If you want to easily grab this use scoop and run ``scoop install ascii-image-converter`` otherwise you can go through the hell of installing it manually.
+    If you don't already have scoop, you can grab it here: \[[scoop](https://scoop.sh/)\]
+# 2. 
+    Next, I add this awful hack into my config file, example is below.
+    To find where you need to edit the config file ctrl-f for ``image_source`` and you'll find out where to glue in my horrible hack.
+    It does run the ascii-image-converter every time you run neofetch, so it's not horribly efficient, but you can have fun with it like selecting a random anime babe every time you run neofetch, etc.
 
-The overall purpose of Neofetch is to be used in screen-shots of your system. Neofetch shows the information other people want to see. There are other tools available for proper system statistic/diagnostics.
+```sh
+# Image Source
+zzTERMINAL_HEIGHT=$(($(tput lines) / 2))
+if [ $zzTERMINAL_HEIGHT -lt 20 ]; then
+    zzTERMINAL_HEIGHT=20
+fi
 
-The information by default is displayed alongside your operating system's logo. You can further configure Neofetch to instead use an image, a custom ASCII file, your wallpaper or nothing at all.
+Waifu=$(ascii-image-converter "C:\Users\nzork\neofetch\rei.jpg" -C -x -H $zzTERMINAL_HEIGHT --complex -m " .-=+#@" -b --dither)
+image_source="$Waifu"
+```
 
-<img src="https://i.imgur.com/lUrkQBN.png" alt="neofetch" align="right" height="240px">
+# 3. 
+    I run ``neofetch`` and it displays my waifu in the terminal with ANSI color codes and somewhat correct formatting.
 
-You can further configure Neofetch to display exactly what you want it to. Through the use of command-line flags and the configuration file you can change existing information outputs or add your own custom ones.
+## Example Image:
 
-Neofetch supports almost 150 different operating systems. From Linux to Windows, all the way to more obscure operating systems like Minix, AIX and Haiku. If your favourite operating system is unsupported: Open up an issue and support will be added.
+![Example](https://i.imgur.com/kp6dYJr.png)
+
+## Conclusion: 
+
+    I pretty much have no plans on future iterations for this, but I figured someone else would find it useful as it took way too much googling to get to this point. This is pretty minimalistic but it works for me and I hope it works for you too. 
+    Feel free to submit any PRs, the main edit that was made to neofetch was made in ``print_ascii()`` function. 
+    
+    Cheers!
 
 
-### More: \[[Dependencies](https://github.com/dylanaraps/neofetch/wiki/Dependencies)\] \[[Installation](https://github.com/dylanaraps/neofetch/wiki/Installation)\] \[[Wiki](https://github.com/dylanaraps/neofetch/wiki)\]
+### More: 
+\[[Dependencies](https://github.com/dylanaraps/neofetch/wiki/Dependencies)\] \[[Installation](https://github.com/dylanaraps/neofetch/wiki/Installation)\] \[[Wiki](https://github.com/dylanaraps/neofetch/wiki)\]
