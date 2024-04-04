@@ -1,19 +1,22 @@
 # Better ASCII Waifus for Neofetch
 
-    While displaying images in your terminal is cool and all, I wanted to use custom ASCII art, but with ANSI color support to specifically support the output from ascii-image-converter. 
-    This is a fork of Neofetch that adds support for custom ASCII art files with ANSI color codes. 
-    This isn't the be all and end all, but it's something I use and wanted to share because I couldn't find anything like it that was readily available.
+While displaying images in your terminal is cool and all, I wanted to use custom ASCII art, but with ANSI color support to specifically support the output from ascii-image-converter. 
+This is a fork of Neofetch that adds support for custom ASCII art files with ANSI color codes. 
+This isn't the be all and end all, but it's something I use and wanted to share because I couldn't find anything like it that was readily available.
 
 ## How I personally use this:
 
-# 1. 
-    I use this library to convert my waifu over to ASCII art, you'll need to grab this for my example to work: \[[ascii-image-converter](https://github.com/TheZoraiz/ascii-image-converter/)\]
-    I'm a gamedev, so I'm on windows. If you want to easily grab this use scoop and run ``scoop install ascii-image-converter`` otherwise you can go through the hell of installing it manually.
-    If you don't already have scoop, you can grab it here: \[[scoop](https://scoop.sh/)\]
-# 2. 
-    Next, I add this awful hack into my config file, example is below.
-    To find where you need to edit the config file ctrl-f for ``image_source`` and you'll find out where to glue in my horrible hack.
-    It does run the ascii-image-converter every time you run neofetch, so it's not horribly efficient, but you can have fun with it like selecting a random anime babe every time you run neofetch, etc.
+### 1. 
+
+I use this library to convert my waifu over to ASCII art, you'll need to grab this for my example to work: \[[ascii-image-converter](https://github.com/TheZoraiz/ascii-image-converter/)\]
+I'm a gamedev, so I'm on windows. If you want to easily grab this use scoop and run ``scoop install ascii-image-converter`` otherwise you can go through the hell of installing it manually.
+If you don't already have scoop, you can grab it here: \[[scoop](https://scoop.sh/)\]
+
+### 2. 
+
+Next, I add this awful hack into my config file, example is below.
+To find where you need to edit the config file ctrl-f for ``image_source`` and you'll find out where to glue in my horrible hack.
+It does run the ascii-image-converter every time you run neofetch, so it's not horribly efficient, but you can have fun with it like selecting a random anime babe every time you run neofetch, etc.
 
 ```sh
 # Image Source
@@ -26,10 +29,10 @@ Waifu=$(ascii-image-converter "C:\Users\nzork\neofetch\rei.jpg" -C -x -H $zzTERM
 image_source="$Waifu"
 ```
 
-# 3. 
+### 3. 
     I run ``neofetch`` and it displays my waifu in the terminal with ANSI color codes and somewhat correct formatting.
 
-## Example Image:
+### Example Image:
 
 ![Example](https://i.imgur.com/kp6dYJr.png)
 
