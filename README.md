@@ -6,13 +6,13 @@ This isn't the be all and end all, but it's something I use and wanted to share 
 
 ## How I personally use this:
 
-### 1. 
+### 1. Setup Waifu Ascii Art:
 
 I use this library to convert my waifu over to ASCII art, you'll need to grab this for my example to work: \[[ascii-image-converter](https://github.com/TheZoraiz/ascii-image-converter/)\]
 I'm a gamedev, so I'm on windows. If you want to easily grab this use scoop and run ``scoop install ascii-image-converter`` otherwise you can go through the hell of installing it manually.
 If you don't already have scoop, you can grab it here: \[[scoop](https://scoop.sh/)\]
 
-### 2. 
+### 2. Edit Neofetch Config:
 
 Next, I add this awful hack into my config file, example is below.
 To find where you need to edit the config file ctrl-f for ``image_source`` and you'll find out where to glue in my horrible hack.
@@ -29,7 +29,7 @@ Waifu=$(ascii-image-converter "C:\Users\nzork\neofetch\rei.jpg" -C -x -H $zzTERM
 image_source="$Waifu"
 ```
 
-### 3. 
+### 3. Run Neofetch:
     I run ``neofetch`` and it displays my waifu in the terminal with ANSI color codes and somewhat correct formatting.
 
 ### Example Image:
